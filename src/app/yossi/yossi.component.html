@@ -1,0 +1,28 @@
+<div style="height: 300px;width: 300px;overflow: auto;">
+<app-obs></app-obs>
+<div>{{aa | async}}
+<div *ngIf="(personsDataUserPref | async) as ss">
+  <div *ngFor="let person of ss.dat" [style.background]="ss.bgColor" >
+  {{person.id}}
+  {{person.dt | date:'shortDate'}}
+  </div>
+</div>
+
+<button [ngClass]="{'hover-clr': isHover}" (mouseover)="isHover=true" (mouseout)="isHover=false" (click)="wakeS1()">S1</button>
+<button (click)="wakeS2()">S2</button>
+{{currentTimeFRLocale}}
+<app-my-dashboard></app-my-dashboard>
+<app-form-temp></app-form-temp>  
+ {{mvc$ | async}} 
+<div *ngIf="(priceItem$ | async) as pItem" >
+  {{pItem.id}}-{{pItem.name | dup }}-{{pItem.price}}
+  </div>
+<button (click)="postItemToMVC();">Add Item</button>
+<div>{{aa | async}}</div>
+<select (change)="selChange($event)"  #sel>
+  <option value="opt1">opt1
+  <option value="opt2">opt2
+</select>  
+<input type="checkbox" value="cb" (click)="cbClick(check1.checked)"  #check1>
+<a href="/lazy">LAZY</a>
+</div>
